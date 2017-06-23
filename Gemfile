@@ -4,16 +4,17 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+gem 'will_paginate'
 gem 'devise'
 gem 'activeadmin'
 gem "active_skin"
-gem 'bootstrap', '~> 4.0.0.alpha6'
-gem 'autoprefixer-rails'
+gem 'groupdate', '~> 3.2'
 gem 'rails-i18n'
 gem 'chartkick'
-gem 'groupdate'
+gem 'highcharts-rails', '~> 5.0', '>= 5.0.7'
 gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.4.1'
-gem 'bootstrap_form'
+gem 'bootstrap-sass', '~> 3.3.6'
+
 gem 'i18n', '~> 0.8.4'
 gem 'cancancan', '~> 2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -49,13 +50,15 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
-
+group :production do
+  gem 'pg', '~> 0.21.0'
+  gem 'rails_12factor', '~> 0.0.3'
+  end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
-  
- 
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

@@ -24,7 +24,9 @@ class EmploymentInformationsController < ApplicationController
   # POST /employment_informations
   # POST /employment_informations.json
   def create
-    @employment_information = EmploymentInformation.new(employment_information_params)
+
+
+    @employment_information = current_user.employment_informations.new(employment_information_params)
 
     respond_to do |format|
       if @employment_information.save

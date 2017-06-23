@@ -24,7 +24,10 @@ class LearningsController < ApplicationController
   # POST /learning
   # POST /learning.json
   def create
-    @learning= Learning.new(learning_params)
+
+
+
+    @learning= current_user.learnings.new(learning_params)
 
     respond_to do |format|
       if @learning.save

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613072913) do
+ActiveRecord::Schema.define(version: 20170622060014) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 20170613072913) do
     t.string   "Recommendation"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_company_informations_on_user_id"
   end
 
   create_table "employment_informations", force: :cascade do |t|
@@ -97,6 +99,8 @@ ActiveRecord::Schema.define(version: 20170613072913) do
     t.string   "Question13"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_employment_informations_on_user_id"
   end
 
   create_table "learnings", force: :cascade do |t|
@@ -108,6 +112,8 @@ ActiveRecord::Schema.define(version: 20170613072913) do
     t.string   "Experience"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_learnings_on_user_id"
   end
 
   create_table "personal_informations", force: :cascade do |t|
@@ -129,8 +135,8 @@ ActiveRecord::Schema.define(version: 20170613072913) do
     t.string   "Computing"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.date     "Monthandyear"
     t.integer  "user_id"
+    t.date     "Monthandyears"
     t.index ["user_id"], name: "index_personal_informations_on_user_id"
   end
 

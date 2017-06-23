@@ -24,7 +24,8 @@ class CompanyInformationsController < ApplicationController
   # POST /company_informations
   # POST /company_informations.json
   def create
-    @company_information = CompanyInformation.new(company_information_params)
+
+    @company_information = current_user.company_informations.new(company_information_params)
 
     respond_to do |format|
       if @company_information.save

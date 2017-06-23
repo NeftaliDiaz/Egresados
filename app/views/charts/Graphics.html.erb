@@ -1,4 +1,47 @@
-<h1>Charts#Graphics</h1>
-<p>Find me in app/views/charts/Graphics.html.erb</p>
 
-<%= line_chart User.group_by_day(:created_at).count %>
+<table class="table table-bordered table-striped table-hover ">
+	<tr>
+		
+		<th>
+		<p>CARRERA DE EGRESO</p>
+			<%= pie_chart EmploymentInformation.group(:Profession).count,  width: "400px", height: "300px", download: true %>
+		</th>
+		<th>
+		<p>ESPECIALIDAD</p>
+			<%= pie_chart EmploymentInformation.group(:Specialty).count,  width: "400px", height: "300px", download: true%>
+		</th>
+	</tr>
+	<tr>
+		<th>
+			<p>CALIDAD DE LOS DOCENTES</p>
+			<%= column_chart Learning.group(:Quality).count ,  width: "400px", height: "300px"%>
+		</th>
+		<th>
+			<p>PLAN DE ESTUDIOS</p>
+			<%= column_chart Learning.group(:Studies).count,  width: "400px", height: "300px" %>
+		</th>
+	</tr>
+	<tr>
+		<th>
+			<p>PROYECTOS DE INVESTIGACION Y DESARROLLO</p>
+			<%= column_chart Learning.group(:Projects).count ,  width: "400px", height: "300px"%>
+		</th>
+		<th>
+			<p>IVESTIGACIÓN DENTRO DEL PROCESO DE ENSEÑANZA</p>
+			<%= column_chart Learning.group(:Investigation).count,  width: "400px", height: "300px" %>
+		</th>
+	</tr>
+	<tr>
+		<th>
+			<p>INFRAESTRUCTURA</p>
+			<%= column_chart Learning.group(:Infrastructure).count ,  width: "400px", height: "300px"%>
+		</th>
+		<th>
+			<p>EXPERIENCIA DE LA RECIDENCIA </p>
+			<%= column_chart Learning.group(:Experience).count,  width: "400px", height: "300px" %>
+		</th>
+	</tr>
+	
+</table>
+
+

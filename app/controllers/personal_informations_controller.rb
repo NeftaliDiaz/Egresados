@@ -70,6 +70,6 @@ class PersonalInformationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def personal_information_params
-      params.require(:personal_information).permit(:FirstName, :FirstLastName, :SecondLastName, :ControlNumber, :Birthdate, :Curp, :Phone, :Address, :Unity, :City, :State, :Profession, :Specialty, :Titulo, :Language, :Computing,:Monthandyear)
+      params.require(:personal_information).permit(:FirstName, :FirstLastName, :SecondLastName, :ControlNumber, :Birthdate, :Curp, :Phone, :Address, :Unity, :City, :State, :Profession, :Specialty, :Titulo, :Language, :Computing,:Monthandyears)
     end
 end

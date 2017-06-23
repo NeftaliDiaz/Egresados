@@ -1,5 +1,10 @@
 /* Uncomment and set these variables to customize the grid. */
 
+.container-fluid,
+.container {
+  margin-right: auto;
+  margin-left: auto;
+}
 .container-fluid {
   margin-right: auto;
   margin-left: auto;

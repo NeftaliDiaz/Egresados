@@ -11,34 +11,32 @@
     </div>
   <% end %>
 
-  <h4><b>PERFIL DEL EGRESADO <%= @personal_information.user.email%></b><H4><HR>
+  <h4><b>PERFIL DEL EGRESADO </b><H4><HR>
 
-  <div class="contenedor-formulario">
-    <div class="wrap">
+  
       <div>
-        <div class="field" style="text-align: left" placeholder="Campo de texto">
+        <div class="field" style="text-align: left">
           <%= f.label :FirstName, "Nombre(s)"%>
-            <div style="text-transform:uppercase">
-              <%= f.text_field :FirstName,class:"form-control",placeholder: 'Osmar Neftali',required:"required"%>
-            </div>
+              <%= f.text_field :FirstName,class:"form-control",placeholder: 'Osmar Neftali',required:"required",type:"text"%>
+           
         </div>
         <br>
         
         <div class="field" style="text-align: left:100px;width: 370px;display: inline-block;float:left;">
           <%= f.label :FirstLastName, "Apellido paterno" %>
-          <%= f.text_field :FirstLastName,placeholder: 'Diaz',class: "form-control",required:"required" %>
+          <%= f.text_field :FirstLastName,placeholder: 'Diaz',class: "form-control",required:"required",type:"text" %>
         </div>
    
         <div class="field" style="text-align: left;width: 370px;display: inline-block;float: right;">
           <%= f.label :SecondLastName, "Apellido materno" %>
-          <%= f.text_field :SecondLastName ,placeholder: 'Canseco',class:"form-control",required:"required"%>
+          <%= f.text_field :SecondLastName ,placeholder: 'Canseco',class:"form-control",required:"required",type:"text"%>
         </div>
       </div>
 
       <div>
         <div class="field" style="text-align: left;width: 370px;display: inline-block;"><br>
           <%= f.label :ControlNumber, "No. de control" %>
-          <%= f.text_field :ControlNumber ,placeholder: '11920244',class:"form-control",required:"required"%>
+          <%= f.text_field :ControlNumber ,placeholder: '11920244',class:"form-control",required:"required",type:"text",maxlength:"8",id:"ControlNumber",onchange:"validate(this)"%>
         </div>
    
         <div class="field" style="text-align: left;width: 370px;display: inline-block;float: right;"><br>
@@ -50,12 +48,13 @@
         
         <div class="field" style="text-align: left;width: 370px;display: inline-block;">
           <%= f.label :Curp, "CURP" %>
-          <%= f.text_field :Curp,class:"form-control", required:"required"%>
+          <%= f.text_field :Curp,class:"form-control", required:"required",type:"text",required:"required",maxlength:"18",id:"Curp_input",oninput:"validarInput(this)" %>
+    <input readonly id="resultado" class="form-control">
         </div>
   
-        <div class="field" style="text-align: left;width: 370px;display: inline-block;float: right;">
+        <div class="field" style="text-align: left;width: 370px;display: inline-block;float: right;1">
           <%= f.label :Phone, "Telefono" %>
-          <%= f.text_field :Phone,class:"form-control",required:"required" %>
+          <%= f.text_field :Phone,class:"form-control",required:"required",type:"text",maxlength:"10",id:"Phone",onchange:"validate_tel(this)"%>
         </div>
       </div>
 
@@ -66,18 +65,18 @@
 
       <div class="field" style="text-align: left">
         <%= f.label :Address, "Domicilio"  %>
-        <%= f.text_field :Address,placeholder: 'Avenida Revolucion',class:"form-control",required:"required" %>
+        <%= f.text_field :Address,placeholder: 'Avenida Revolucion',class:"form-control",required:"required",type:"text" %>
       </div>
 
       <div> 
         <div class="field" style="text-align: left;width: 250px;display: inline-block;"></br>
           <%= f.label :Unity, "Colnia" %>
-          <%= f.text_field :Unity,placeholder: 'La esperanza',class:"form-control",required:"required" %>
+          <%= f.text_field :Unity,placeholder: 'La esperanza',class:"form-control",required:"required",type:"text" %>
         </div>
    
         <div class="field" style="text-align: left;width: 250px;display: inline-block;"></br>
           <%= f.label :City, "Municipio" %>
-          <%= f.text_field :City,placeholder: 'Ocotlan de Morelos',class:"form-control",required:"required"  %>
+          <%= f.text_field :City,placeholder: 'Ocotlan de Morelos',class:"form-control",required:"required",type:"text"  %>
         </div>
 
         <div class="field" style="text-align: left;width: 260px;display: inline-block;float: right;"></br>
@@ -95,8 +94,8 @@
 
   
       <div class="field" style="text-align: left;width: 370px;display: inline-block;float: right;">
-        <%= f.label :Monthandyear, "Mes y año de Egreso" %>
-        <%= f.text_field :Monthandyear, 'data-provide' => 'datepicker' %><br>
+        <%= f.label :Monthandyears, "Mes y año de Egreso" %>
+        <%= f.text_field :Monthandyears, 'data-provide' => 'datepicker'  %>
       </div>
 
       <div>  
@@ -106,23 +105,25 @@
         <%= f.select :Specialty, options_for_select(["Specialty Agronomia","Specialty Biologia","Specialty Forestal","Specialty Informatica","Specialty TIC's"]), {}, class: "form-control" %> <br>
          
       </div>
-
       <div class="field" style="text-align: left;width: 370px;display: inline-block;float: right;">
 
-        <%= f.label :Language, "Dominio de idioma extrangero: Ingles" %>
-        <%= f.text_field :Language ,class: "form-control",placeholder: '%'%>
-       
+           <%= f.label :Language, "Dominio de idioma extrangero: Ingles" %>
 
-        <br>
-      </div><br>
-      
+           <div class="field" style="text-align: left;width: 200px;display: inline-block;float: right:200px">
+           
+              <%= f.select :Specialty, options_for_select(["0","5","10","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100"]), {}, class: "form-control" %>
+
+              <br>
+          </div>
+      </div>
+           
 
 
   
       
 
  <div class="field" style="text-align: left" placeholder="Campo de texto">
-        <%= f.label :Computing, "Habilidades Informaticas" %>
+        <br></br><br></br><%= f.label :Computing, "Habilidades Informaticas" %>
         <%= f.text_field :Computing,class: "form-control"  %><br>
       </div>
       
@@ -133,7 +134,7 @@
         <fieldset>
           <% lista = titulados %>
           <% lista.each do |titulado|%>
-          <%= f.radio_button :Titulo, titulado[1] %>
+          <%= f.radio_button :Titulo, titulado[1],required:"required" %>
           <label style="margin-right: 60px;"> <for= "<%= titulado[1]%>"><%= titulado[0]%></label>
           <% end %>
         </fieldset>

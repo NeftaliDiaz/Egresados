@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :personal_informations
   resources :employment_informations
   get 'charts/Graphics'
+  get 'welcome/index'
   root :to => 'welcome#index'
+  post ':controller(/:action(/:id))'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

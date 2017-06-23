@@ -163,12 +163,12 @@
  
  <p style="text-align: left;margin: 0px;margin-top: 20px;">11.- Pertece a organizaciones sociales:</p>
   <div class="field">
-  <% pgta17s ={'si' => '1', 'no'=> '2'}%>
+  <% pgta17s ={'SI' => 'SI', 'NO'=> 'No'}%>
   <fieldset>
-    <% lista = pgta17s.sort %>
+    <% lista = pgta17s %>
     <% lista.each do |pgta17|%>
     <%= f.radio_button :SocialOrganizations, pgta17[1] %>
-    <label for= "<%= pgta17[1]%>"><%= pgta17[0]%></label>
+    <label style="margin-right: 40px; for= "<%= pgta17[1]%>"><%= pgta17[0]%></label>
     <% end %>
 
   </fieldset>
@@ -180,12 +180,12 @@
   
  <p style="text-align: left;margin: 0px;margin-top: 20px;">12.- Pertece a organizaciones de profecionistas:</p>
   <div class="field">
-  <% pgta18os ={'si' => '1', 'no'=> '2'}%>
+  <% pgta18os ={'SI' => 'SI', 'NO'=> 'No'}%>
   <fieldset>
-    <% lista = pgta18os.sort %>
+    <% lista = pgta18os %>
     <% lista.each do |pgta18o|%>
-    <%= f.radio_button :Committee, pgta18o[1] %>
-    <label for= "<%= pgta18o[1]%>"><%= pgta18o[0]%></label>
+    <%= f.radio_button :Committee, pgta18o[1],required:"required"%>
+    <label style="margin-right: 40px; <for= "<%= pgta18o[1]%>"><%= pgta18o[0]%></label>
     <% end %>
 </fieldset>
 </div>
